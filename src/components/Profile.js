@@ -13,11 +13,12 @@ export default function Profile() {
 
     useEffect( () => {
         async function fetchData() {
+
             await fetch("https://randomuser.me/api/")
                 .then(res => res.json())
                 .then(
                     async (result) => {
-
+                        setIsLoaded(true);
                         let profileData = result.results[0];
                         // await setProfile(result.results);
                         // await setProfile(result);
@@ -28,9 +29,6 @@ export default function Profile() {
                             }
                             )
                         );
-                        setIsLoaded(true);
-                        console.log(profile);
-
                     },
 
                     (error) => {
@@ -50,7 +48,7 @@ export default function Profile() {
     if (error) {
         return <div>Error: {error.message}</div>;
     } else if (!isLoaded) {
-        return <div>Loading...</div>;
+        return <div><h1>Loading...</h1></div>;
     } else {
         return (
 
@@ -63,7 +61,7 @@ export default function Profile() {
                     <dl>
                         <div className="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                             <dt className="text-sm font-medium text-gray-500">Full name</dt>
-                            <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">Margot Foster</dd>
+                            <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">{profile.firstName} {profile.lastName}</dd>
                         </div>
                         <div className="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                             <dt className="text-sm font-medium text-gray-500">Address</dt>
