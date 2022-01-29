@@ -2,7 +2,15 @@
 import { PaperClipIcon } from '@heroicons/react/solid'
 import React from "react";
 
-export default function Profile() {
+class Profile extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+        profile: {userName: "Psherman32", firstName: 'Peter', lastName:"Sherman", address:"32 Wallaby Way", city: "Sydney",
+            state: "AU", postCode:"40019", password: "psherman32wallabywaysydney", phone: "502-555-5555",},
+        };
+    }
+    render(){
     return (
 
         <div className="mt-2 mb-5 m-auto w-50 bg-light shadow-lg border-2 border overflow-hidden sm:rounded-lg">
@@ -14,15 +22,11 @@ export default function Profile() {
                 <dl>
                     <div className="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                         <dt className="text-sm font-medium text-gray-500">Full name</dt>
-                        <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">Margot Foster</dd>
+                        <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">{this.state.profile.firstName} {this.state.profile.lastName}</dd>
                     </div>
                     <div className="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                         <dt className="text-sm font-medium text-gray-500">Address</dt>
                         <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">Backend Developer</dd>
-                    </div>
-                    <div className="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                        <dt className="text-sm font-medium text-gray-500">Email address</dt>
-                        <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">margotfoster@example.com</dd>
                     </div>
                     <div className="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                         <dt className="text-sm font-medium text-gray-500">Phone Number</dt>
@@ -35,5 +39,7 @@ export default function Profile() {
                 </dl>
             </div>
         </div>
-    )
+    )}
 }
+
+export default Profile;
