@@ -1,25 +1,27 @@
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Profile from "./components/Profile";
 import logo from './logo.svg';
 import './App.css';
+import NavComponent from "./components/NavComponent";
+import {Route, Routes} from "react-router-dom";;
+
+
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <div>
+            <NavComponent />
+            <section>
+                <Routes>
+                    <Route path="/" element={<Profile />} />
+                    <Route path="/" element={<Profile />} />
+                </Routes>
+            </section>
+        </div>
+        // <h1 className="text-3xl font-bold underline">
+        //   Hello world!
+        // </h1>
+    );
 }
 
 export default App;
