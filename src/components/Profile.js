@@ -12,6 +12,8 @@ export default function Profile() {
         state: '',
         zip: '',
         username: '',
+        phone: '',
+        password: '',
 
     });
     const [isLoaded, setIsLoaded] = useState(false);
@@ -35,7 +37,10 @@ export default function Profile() {
                                 city: profileData.location.city,
                                 state: profileData.location.state,
                                 zip: profileData.location.postcode,
-                                username: profileData.login.username
+                                username: profileData.login.username,
+                                password: profileData.login.password,
+                                phone: profileData.phone,
+
                             }
                             )
                         );
@@ -86,11 +91,11 @@ export default function Profile() {
                         </div>
                         <div className="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                             <dt className="text-sm font-medium text-gray-500">Phone Number</dt>
-                            <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">502-555-5555</dd>
+                            <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">{profile.phone}</dd>
                         </div>
                         <div className="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                             <dt className="text-sm font-medium text-gray-500">Password</dt>
-                            <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">PW FIELD</dd>
+                            <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">{profile.password}</dd>
                         </div>
                     </dl>
                 </div>
