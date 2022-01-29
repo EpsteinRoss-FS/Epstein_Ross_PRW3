@@ -11,6 +11,7 @@ export default function Profile() {
         city: '',
         state: '',
         zip: '',
+        username: '',
 
     });
     const [isLoaded, setIsLoaded] = useState(false);
@@ -33,7 +34,8 @@ export default function Profile() {
                                 streetName: profileData.location.street.number + " " + profileData.location.street.name,
                                 city: profileData.location.city,
                                 state: profileData.location.state,
-                                zip: profileData.location.postcode
+                                zip: profileData.location.postcode,
+                                username: profileData.login.username
                             }
                             )
                         );
@@ -62,7 +64,7 @@ export default function Profile() {
 
             <div className="mt-2 mb-5 m-auto w-50 bg-light shadow-lg border-2 border overflow-hidden sm:rounded-lg">
                 <div className="px-4 py-5 sm:px-6">
-                    <h3 className="text-lg leading-6 font-medium text-gray-900"> Profile </h3>
+                    <h3 className="text-lg leading-6 font-medium text-gray-900"> {profile.username.toUpperCase()}'s Profile </h3>
                     {/*<p className="mt-1 max-w-2xl text-sm text-gray-500">Personal details and application.</p>*/}
                 </div>
                 <div className="border-t border-gray-200">
