@@ -14,6 +14,7 @@ export default function Profile() {
         username: '',
         phone: '',
         password: '',
+        profilePhoto: ''
 
     });
     const [isLoaded, setIsLoaded] = useState(false);
@@ -40,6 +41,7 @@ export default function Profile() {
                                 username: profileData.login.username,
                                 password: profileData.login.password,
                                 phone: profileData.phone,
+                                profilePhoto: profileData.picture.large,
 
                             }
                             )
@@ -69,8 +71,15 @@ export default function Profile() {
 
             <div className="mt-2 mb-5 m-auto w-50 bg-light shadow-lg border-2 border overflow-hidden sm:rounded-lg">
                 <div className="px-4 py-5 sm:px-6">
-                    <h3 className="text-lg leading-6 font-medium text-gray-900"> {profile.username.toUpperCase()}'s Profile </h3>
-                    {/*<p className="mt-1 max-w-2xl text-sm text-gray-500">Personal details and application.</p>*/}
+                    <div class="row">
+                    <div class="col">
+                        <h3 className="text-lg leading-6 font-medium text-gray-900"> {profile.username.toUpperCase()}'s Profile </h3>
+                    </div>
+                    <div class="col">
+                        <img class="ms-lg-auto border border-dark rounded-circle" src={profile.profilePhoto} />
+                    </div>
+                    </div>
+
                 </div>
                 <div className="border-t border-gray-200">
                     <dl>
