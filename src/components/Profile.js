@@ -4,10 +4,14 @@ import React, {useEffect, useState} from "react";
 
 export default function Profile() {
     const [error, setError] = useState(null);
-    const [profile, setProfile] = useState(null);
+    const [profile, setProfile] = useState( {
+        firstName: '',
+        lastName: '',
+
+    });
     const [isLoaded, setIsLoaded] = useState(false);
 
-    useEffect(async () => {
+    useEffect( () => {
         async function fetchData() {
             await fetch("https://randomuser.me/api/")
                 .then(res => res.json())
@@ -16,7 +20,14 @@ export default function Profile() {
 
                         let profileData = result.results[0];
                         // await setProfile(result.results);
-                        await setProfile(result);
+                        // await setProfile(result);
+                        setProfile((prevState) => ({
+                            ...prevState,
+                                firstName: profileData.name.first,
+                                lastName: profileData.name.last,
+                            }
+                            )
+                        );
                         setIsLoaded(true);
                         console.log(profile);
 
@@ -26,14 +37,14 @@ export default function Profile() {
                         setIsLoaded(true);
                         setError(error);
                     }
-                ).then(
-
                 )
         }
-            await fetchData()
 
-    } ,
-[])
+        if(!isLoaded) {
+            fetchData()
+        }
+
+    } ,)
 
 
     if (error) {
